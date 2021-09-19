@@ -9,10 +9,10 @@ import { Store } from './src/redux/store';
 export default function App() {
   return (
     <Provider store={Store}>
-    <NavigationContainer>
-      <StatusBar style="auto" />
-      <MainRoute />
-    </NavigationContainer>
+      <NavigationContainer>
+        <StatusBar style="auto" />
+        <MainRoute />
+      </NavigationContainer>
     </Provider>
   );
 }
