@@ -1,16 +1,24 @@
-import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React from "react";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import HomeScreen from './views/Home'
+import HomeScreen from "./views/Home";
+import FavoriteScreen from "./views/Favorites";
 
-const Stack = createNativeStackNavigator();
+const MainStack = createNativeStackNavigator();
+const SecondStack = createNativeStackNavigator();
 
-const MainRoute = () => {
+export const MainRoute = () => {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Home" component={HomeScreen} />
-    </Stack.Navigator>
+    <MainStack.Navigator screenOptions={{ headerShown: false }}>
+      <MainStack.Screen name="Home" component={HomeScreen} />
+    </MainStack.Navigator>
   );
-}
+};
 
-export default MainRoute;
+export const FavoriteRoute = () => {
+  return (
+    <SecondStack.Navigator screenOptions={{ headerShown: false }}>
+      <SecondStack.Screen name="Favorites" component={FavoriteScreen} />
+    </SecondStack.Navigator>
+  );
+};
