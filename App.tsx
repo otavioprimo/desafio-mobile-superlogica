@@ -4,7 +4,8 @@ import { Provider } from "react-redux";
 import { Store } from "./src/redux/store";
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { MainRoute, FavoriteRoute } from "./src/routes";
+import HomeScreen from './src/views/Home';
+import Favorite from './src/views/Favorites';
 import { NavigationContainer } from "@react-navigation/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
@@ -20,7 +21,7 @@ function Tabs() {
     >
       <Tab.Screen
         name="HomeTab"
-        component={MainRoute}
+        component={HomeScreen}
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
@@ -30,7 +31,7 @@ function Tabs() {
       />
       <Tab.Screen
         name="Favorites"
-        component={FavoriteRoute}
+        component={Favorite}
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (

@@ -40,7 +40,7 @@ const Home: React.FC = () => {
         renderItem={(item: any) => <Card data={item} />}
         onEndReached={getCharacters}
         onEndReachedThreshold={0.1}
-        ListFooterComponent={<FooterComponent load={loading} />}
+        ListHeaderComponent={<FooterComponent load={loading} />}
       />
     </SafeAreaView>
   );
