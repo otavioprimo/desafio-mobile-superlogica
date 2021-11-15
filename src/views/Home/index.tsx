@@ -6,10 +6,8 @@ import {
   View,
   FlatList,
   StyleSheet,
-  Modal,
-  Pressable,
 } from "react-native";
-import { Card } from "../../components";
+import { Card, DrawerModal } from "../../components";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const Home: React.FC = () => {
@@ -45,71 +43,11 @@ const Home: React.FC = () => {
         onEndReachedThreshold={0.1}
         ListHeaderComponent={<FooterComponent load={loading} />}
       />
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => {
-          setModalVisible(false);
-        }}
-      >
-        <View
-          style={{
-            flex: 1,
-            justifyContent: 'flex-end'
-          }}
-        >
-          <View
-            style={{
-              position: 'relative',
-              bottom: 0,
-              backgroundColor: "white",
-              borderTopRightRadius: 20,
-              borderTopLeftRadius: 20,
-              padding: 32,
-              alignItems: "center",
-              shadowColor: "#000",
-              shadowOffset: {
-                width: 0,
-                height: 2,
-              },
-              shadowOpacity: 0.25,
-              shadowRadius: 4,
-              elevation: 5,
-            }}
-          >
-            <Text
-              style={{
-                marginBottom: 15,
-                textAlign: "center",
-              }}
-            >
-              Hello World!
-            </Text>
-            <Pressable
-              style={[
-                {
-                  borderRadius: 20,
-                  padding: 10,
-                  elevation: 2,
-                  backgroundColor: "#8BCF21",
-                },
-              ]}
-              onPress={() => setModalVisible(false)}
-            >
-              <Text
-                style={{
-                  color: "white",
-                  fontWeight: "bold",
-                  textAlign: "center",
-                }}
-              >
-                Fechar
-              </Text>
-            </Pressable>
-          </View>
-        </View>
-      </Modal>
+      <DrawerModal
+        data={data}
+        modalVisible={modalVisible}
+        setModalVisible={setModalVisible}
+      />
     </SafeAreaView>
   );
 };
