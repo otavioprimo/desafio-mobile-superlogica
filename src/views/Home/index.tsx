@@ -6,6 +6,8 @@ import {
   View,
   FlatList,
   StyleSheet,
+  Modal,
+  Pressable,
 } from "react-native";
 import { Card } from "../../components";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -15,6 +17,7 @@ const Home: React.FC = () => {
   const [data, setData] = useState<any[]>([]);
   const [loading, setLoading] = useState<Boolean>(false);
   const [page, setPage] = useState(1);
+  const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
     getCharacters();
@@ -37,11 +40,76 @@ const Home: React.FC = () => {
       <FlatList
         data={data}
         keyExtractor={(item: any) => String(item.id)}
-        renderItem={(item: any) => <Card data={item} />}
+        renderItem={(item: any) => <Card data={item} setModalVisible={setModalVisible} />}
         onEndReached={getCharacters}
         onEndReachedThreshold={0.1}
         ListHeaderComponent={<FooterComponent load={loading} />}
       />
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          setModalVisible(false);
+        }}
+      >
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'flex-end'
+          }}
+        >
+          <View
+            style={{
+              position: 'relative',
+              bottom: 0,
+              backgroundColor: "white",
+              borderTopRightRadius: 20,
+              borderTopLeftRadius: 20,
+              padding: 32,
+              alignItems: "center",
+              shadowColor: "#000",
+              shadowOffset: {
+                width: 0,
+                height: 2,
+              },
+              shadowOpacity: 0.25,
+              shadowRadius: 4,
+              elevation: 5,
+            }}
+          >
+            <Text
+              style={{
+                marginBottom: 15,
+                textAlign: "center",
+              }}
+            >
+              Hello World!
+            </Text>
+            <Pressable
+              style={[
+                {
+                  borderRadius: 20,
+                  padding: 10,
+                  elevation: 2,
+                  backgroundColor: "#8BCF21",
+                },
+              ]}
+              onPress={() => setModalVisible(false)}
+            >
+              <Text
+                style={{
+                  color: "white",
+                  fontWeight: "bold",
+                  textAlign: "center",
+                }}
+              >
+                Fechar
+              </Text>
+            </Pressable>
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 };
@@ -70,6 +138,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: "100%",
-    backgroundColor: "#2F9331",
+    backgroundColor: "#333",
   },
 });

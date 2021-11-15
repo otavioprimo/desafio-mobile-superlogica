@@ -3,13 +3,14 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 interface Props {
   data: any;
+  setModalVisible: any;
 }
 
-export const Card = ({ data }: Props) => {
+export const Card = ({ data, setModalVisible }: Props) => {
   const { item } = data;
 
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={() => setModalVisible(true)}>
       <Image 
         source={{ uri: item.image }} 
         style={styles.image} 
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
     margin: 16,
     padding: 8,
     borderRadius: 8,
-    backgroundColor: "#8BCF21",
+    backgroundColor: "#2F9331", // #2F9331 / #8BCF21
   },
   image: {
     width: 50,

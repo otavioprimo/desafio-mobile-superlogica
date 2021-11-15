@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Provider } from "react-redux";
 import { Store } from "./src/redux/store";
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import HomeScreen from './src/views/Home';
-import Favorite from './src/views/Favorites';
+import HomeScreen from "./src/views/Home";
+import Favorite from "./src/views/Favorites";
 import { NavigationContainer } from "@react-navigation/native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
