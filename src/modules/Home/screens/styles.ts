@@ -5,8 +5,8 @@ import styled from "styled-components/native";
 export const Container = styled(SafeAreaView)`
   flex: 1;
   justify-content: center;
-  align-items: center;
-  background-color: ${"#9999"};
+  width: 100%;
+  background-color: ${"#333"};
 `;
 
 export const List = styled.FlatList``;

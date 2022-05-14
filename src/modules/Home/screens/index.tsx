@@ -7,8 +7,9 @@ import {
   FlatList,
   StyleSheet,
 } from "react-native";
-import { Card, DrawerModal } from "../../components";
+import { Card, DrawerModal } from "../../../components";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { Container } from "./styles";
 
 const Home: React.FC = () => {
   const baseURL = "https://rickandmortyapi.com/api";
@@ -34,7 +35,7 @@ const Home: React.FC = () => {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <Container>
       <FlatList
         data={data}
         keyExtractor={(item: any) => String(item.id)}
@@ -48,7 +49,7 @@ const Home: React.FC = () => {
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
       />
-    </SafeAreaView>
+    </Container>
   );
 };
 
