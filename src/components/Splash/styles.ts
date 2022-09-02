@@ -6,9 +6,3 @@ export const Container = styled.View`
   justify-content: center;
   align-items: center;
 `;
-
-export const ClickMeButton = styled.TouchableOpacity`
-  
-`;
-
-export const Title = styled.Text``;
