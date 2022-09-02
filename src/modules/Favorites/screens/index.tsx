@@ -1,11 +1,12 @@
 import React from "react";
 import { Text, View } from "react-native";
+import { Container } from "./styles";
 
 const Favorite: React.FC = () => {
   return (
-    <View>
+    <Container>
       <Text>Favorite!</Text>
-    </View>
+    </Container>
   );
 };
 
