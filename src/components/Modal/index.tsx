@@ -8,7 +8,7 @@ interface Props {
 }
 
 export const DrawerModal = ({ data, modalVisible, setModalVisible }: Props) => {
-  const { item } = data;
+  const { text } = data;
 
   return (
     <Modal
@@ -21,7 +21,7 @@ export const DrawerModal = ({ data, modalVisible, setModalVisible }: Props) => {
     >
       <View style={styles.modalContainer}>
         <View style={styles.cardContainer}>
-          <Text>{item}</Text>
+          <Text>{text}</Text>
           <Pressable
             style={styles.modalCloseButton}
             onPress={() => setModalVisible(false)}
